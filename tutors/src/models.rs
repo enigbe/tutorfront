@@ -14,7 +14,7 @@ impl From<web::Json<Course>> for Course {
         Course {
             tutor_id: course.tutor_id,
             course_id: course.course_id,
-            course_name: course.course_name,
+            course_name: course.course_name.clone(),
             posted_time: course.posted_time,
         }
     }
