@@ -1,2 +1,2 @@
 [workspace]
-members = ["tutors"]
+members = ["tutors", "db"]

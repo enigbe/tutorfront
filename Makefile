@@ -3,3 +3,6 @@ tutors-server:
 
 tutors-service:
 	cargo run -p tutors
+
+start-deps:
+	docker compose up -d db
