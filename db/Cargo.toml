@@ -2,13 +2,8 @@
 name = "db"
 version = "0.1.0"
 edition = "2021"
-default-run = "iter1"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[[bin]]
-path = "./src/bin/iter1.rs"
-name = "iter1"
 
 [dependencies]
 sqlx = { version = "0.6.2", default-features = false, features = [

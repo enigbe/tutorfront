@@ -1,0 +1,18 @@
+-- Active: 1674222411971@@127.0.0.1@5432@tutorfront@public
+
+drop table if exists tutor_course;
+
+create table
+    tutor_course (
+        course_id serial primary key,
+        tutor_id int not null,
+        course_name varchar(140) not null,
+        course_description varchar(2000),
+        course_format varchar(30),
+        course_structure varchar(200),
+        course_duration varchar(30),
+        course_price INT,
+        course_language varchar(30),
+        course_level varchar(30),
+        posted_time timestamp default now()
+    );
