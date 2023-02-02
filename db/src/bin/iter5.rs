@@ -1,5 +1,6 @@
 use actix_web::{web, App, HttpServer};
 use dotenv::dotenv;
+use errors::TutorFrontError;
 use sqlx::postgres::PgPool;
 use std::env;
 use std::io;
@@ -34,8 +35,12 @@ async fn main() -> io::Result<()> {
     let app = move || {
         App::new()
             .app_data(shared_data.clone())
+            .app_data(web::JsonConfig::default().error_handler(|_err, _req| {
+                TutorFrontError::InvalidInput("Provide valid JSON input".to_string()).into()
+            }))
             .configure(general_routes)
             .configure(course_routes)
+            .configure(tutor_routes)
     };
     let host_port = env::var("HOST_PORT").expect("HOST:PORT address is not set in .env file");
     HttpServer::new(app).bind(&host_port)?.run().await

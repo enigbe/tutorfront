@@ -6,3 +6,6 @@ tutors-service:
 
 start-deps:
 	docker compose up -d db
+
+clean-deps:
+	docker compose down

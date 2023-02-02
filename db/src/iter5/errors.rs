@@ -8,6 +8,7 @@ pub enum TutorFrontError {
     DBError(String),
     ActixError(String),
     NotFound(String),
+    InvalidInput(String),
 }
 
 #[derive(Debug, Serialize)]
@@ -30,6 +31,10 @@ impl TutorFrontError {
                 println!("Not found error occured: {:?}", msg);
                 msg.into()
             }
+            TutorFrontError::InvalidInput(msg) => {
+                println!("Invalid parameters received: {:?}", msg);
+                msg.into()
+            }
         }
     }
 }
@@ -41,6 +46,7 @@ impl error::ResponseError for TutorFrontError {
                 StatusCode::INTERNAL_SERVER_ERROR
             }
             TutorFrontError::NotFound(_msg) => StatusCode::NOT_FOUND,
+            TutorFrontError::InvalidInput(_msg) => StatusCode::NOT_FOUND,
         }
     }
 
