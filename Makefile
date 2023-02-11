@@ -5,7 +5,7 @@ tutors-service:
 	cargo run -p tutors
 
 start-deps:
-	docker compose up -d db
+	docker compose up -d
 
 clean-deps:
 	docker compose down

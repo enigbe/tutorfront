@@ -1,5 +1,8 @@
 version: "2"
 services:
-  db:
+  service_db:
     ports:
       - "5432:5432"
+  app_db:
+    ports:
+      - "5433:5432"

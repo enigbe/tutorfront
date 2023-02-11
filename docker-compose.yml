@@ -1,8 +1,14 @@
 version: "3"
 services:
-  db:
+  service_db:
     image: postgres:14.1
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=tutorfront
+  app_db:
+    image: postgres:14.1
+    environment:
+      - POSTGRES_USER=appuser
+      - POSTGRES_PASSWORD=appuserpassword
+      - POSTGRES_DB=tutorfront_web_app

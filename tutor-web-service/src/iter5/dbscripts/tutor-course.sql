@@ -1,3 +1,4 @@
+-- Active: 1674222411971@@127.0.0.1@5432@tutorfront@public
 drop table if exists tutor_course cascade;
 
 drop table if exists tutor;
